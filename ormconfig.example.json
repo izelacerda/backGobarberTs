@@ -4,8 +4,8 @@
     "host": "localhost",
     "port": 1433,
     "username": "sa",
-    "password": "reallyStrongPwd123",
-    "database": "fastfeet",
+    "password": "",
+    "database": "gobarber",
     "options": {
       "enableArithAbort": true
     },
@@ -24,7 +24,7 @@
     "type": "mongodb",
     "host": "localhost",
     "port": 27017,
-    "database": "fastfeet",
+    "database": "gobarber",
     "useUnifiedTopology": true,
     "entities": [
       "./src/modules/**/infra/typeorm/schemas/*.ts"

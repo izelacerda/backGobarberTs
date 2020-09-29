@@ -33,7 +33,7 @@ app.use((err: Error, request: Request, response: Response, _: NextFunction) => {
     message: 'Internal server error',
   });
 });
-app.listen(3333, () => {
+app.listen(3334, () => {
   // eslint-disable-next-line no-console
-  console.log('app started on port 3333');
+  console.log('app started on port 3334');
 });

@@ -35,7 +35,7 @@ var _default = {
   config: {
     disk: {},
     aws: {
-      bucket: 'app-fastfeet'
+      bucket: 'app-gobarber'
     }
   }
 };

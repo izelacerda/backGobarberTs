@@ -55,10 +55,11 @@ jobs:
         username: ${{ secrets.SSH_USER }}
         port: ${{ secrets.SSH_PORT }}
         key: ${{ secrets.SSH_KEY }}
-        timeout: "60s"
+        timeout: "120s"
         script: |
           cd ~/apps/backGobarberTs
           ./node_modules/.bin/typeorm migration:run
+          
           
     # RESTART DO SERVIDOR DO NODE.JS
     - name: Restart Servidor Node PM2

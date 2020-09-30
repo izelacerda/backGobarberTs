@@ -22,7 +22,7 @@ const redisClient = _redis.default.createClient({
 const limiter = new _rateLimiterFlexible.RateLimiterRedis({
   storeClient: redisClient,
   keyPrefix: 'ratelimit',
-  points: 50,
+  points: 5000,
   duration: 1
 });
 
@@ -31,6 +31,7 @@ async function rateLimiter(request, response, next) {
     await limiter.consume(request.ip);
     return next();
   } catch (err) {
+    console.log(err)
     throw new _AppError.default(err, 429);
   }
 }

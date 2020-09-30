@@ -29,5 +29,10 @@ routes.use('/users', _users.default);
 routes.use('/sessions', _sessions.default);
 routes.use('/password', _password.default);
 routes.use('/profile', _profile.default);
+routes.get('/default', (request, response) => {
+  return response.json({
+    mensagem: 'OK'
+  });
+});
 var _default = routes;
 exports.default = _default;

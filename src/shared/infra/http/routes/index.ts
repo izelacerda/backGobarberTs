@@ -15,5 +15,8 @@ routes.use('/users', usersRouter);
 routes.use('/sessions', sessionsRouter);
 routes.use('/password', passwordRouter);
 routes.use('/profile', profileRouter);
+routes.get('/default', (request, response) => {
+  return response.json({ mensagem: 'OK' });
+});
 
 export default routes;

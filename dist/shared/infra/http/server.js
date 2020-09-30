@@ -30,8 +30,8 @@ const app = (0, _express.default)();
 app.use((0, _cors.default)());
 app.use(_express.default.json());
 app.use('/files', _express.default.static(_upload.default.uploadsFolder));
-app.use(_rateLimiter.default);
 app.use(_routes.default);
+app.use(_rateLimiter.default);
 app.use((0, _celebrate.errors)());
 app.use((err, request, response, _) => {
   if (err instanceof _AppError.default) {

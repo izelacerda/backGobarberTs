@@ -11,7 +11,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
       
-    - name: Setup Node.js environment
+    - name: Setup Node.js environment 
       uses: actions/setup-node@v1.4.3
       with:
         node-version: 12.x
@@ -55,9 +55,11 @@ jobs:
         username: ${{ secrets.SSH_USER }}
         port: ${{ secrets.SSH_PORT }}
         key: ${{ secrets.SSH_KEY }}
+        timeout: "120s"
         script: |
           cd ~/apps/backGobarberTs
           ./node_modules/.bin/typeorm migration:run
+          
           
     # RESTART DO SERVIDOR DO NODE.JS
     - name: Restart Servidor Node PM2

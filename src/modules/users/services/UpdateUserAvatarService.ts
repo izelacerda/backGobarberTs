@@ -20,19 +20,23 @@ class UpdateUserAvatarService {
   ) {}
 
   public async execute({ user_id, avatarFileName }: IRequest): Promise<User> {
-    const user = await this.usersRepository.findById(user_id);
-    if (!user) {
-      throw new AppError('Only authenticated users can change avatar', 401);
-    }
-    if (user.avatar) {
-      await this.storageProvider.deleteFile(user.avatar);
-    }
-    const filename = await this.storageProvider.saveFile(avatarFileName);
+    try {
+      const user = await this.usersRepository.findById(user_id);
+      if (!user) {
+        throw new AppError('Only authenticated users can change avatar', 401);
+      }
+      if (user.avatar) {
+        await this.storageProvider.deleteFile(user.avatar);
+      }
+      const filename = await this.storageProvider.saveFile(avatarFileName);
 
-    user.avatar = filename;
+      user.avatar = filename;
 
-    await this.usersRepository.save(user);
-    return user;
+      await this.usersRepository.save(user);
+      return user;
+    } catch (error) {
+      throw new AppError(error.message);
+    }
   }
 }
 

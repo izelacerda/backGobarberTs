@@ -3,7 +3,7 @@
     "type": "mssql",
     "host": "localhost",
     "port": 1433,
-    "username": "sa",
+    "username": "",
     "password": "",
     "database": "gobarber",
     "options": {
